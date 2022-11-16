@@ -14,16 +14,16 @@ module.exports.sendActivationMail = (email, token) => {
   console.log('entra en send activation')
   console.log('email', email, 'token', token)
   transporter.sendMail({
-    from: `${process.env.NM_USER}`,
+    from: `Rentup <${process.env.NM_USER}>`,
     to: email,
     subject: "Thanks for joining Rentup",
-    text: 'HOLAAAAAA',
+    html: template.generateEmail(token),
   });
 };
 
 module.exports.sendNotificationMail = (email) => {
   transporter.sendMail({
-    from: `${process.env.NM_USER}`,
+    from: `Rentup <${process.env.NM_USER}>`,
     to: email,
     subject: "You have a new notification",
     html: templateNotification.generateNotMail(),
