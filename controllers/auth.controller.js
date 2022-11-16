@@ -7,6 +7,7 @@ const passport = require("passport");
 module.exports.register = (req, res, next) => {
   User.create(req.body)
     .then((user) => {
+      console.log('entra en register', user)
       mailer.sendActivationMail(user.email, user.activationToken);
       res.status(201).json(user);
     })

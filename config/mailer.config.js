@@ -11,6 +11,7 @@ const transporter = nodemailer.createTransport({
 });
 
 module.exports.sendActivationMail = (email, token) => {
+  console.log('entra en send activation')
   transporter.sendMail({
     from: `Rentup <${process.env.NM_USER}>`,
     to: email,
