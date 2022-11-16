@@ -1,5 +1,5 @@
 const createError = require("http-errors");
-const mailer = require("../config/mailer.config");
+//const mailer = require("../config/mailer.config");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User.model");
 const passport = require("passport");
@@ -7,7 +7,7 @@ const passport = require("passport");
 module.exports.register = (req, res, next) => {
   User.create(req.body)
     .then((user) => {
-      mailer.sendActivationMail(user.email, user.activationToken);
+      //mailer.sendActivationMail(user.email, user.activationToken);
       res.status(201).json(user);
     })
     .catch(next);
